@@ -1,0 +1,5 @@
+com\blooddonation\repository\DonorRepository.class
+com\blooddonation\service\DonorService.class
+com\blooddonation\BloodDonationApplication.class
+com\blooddonation\model\Donor.class
+com\blooddonation\controller\DonorController.class
