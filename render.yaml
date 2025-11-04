@@ -2,10 +2,22 @@ services:
   - type: web
     name: blood-donation-app
     env: docker
-    buildCommand: mvn clean package
-    startCommand: java -jar target/blood-donation-app-0.0.1-SNAPSHOT.jar
+    plan: free
+    dockerfilePath: ./Dockerfile
+    region: oregon  # Choose your preferred region
+    numInstances: 1
+    healthCheckPath: /actuator/health
     envVars:
       - key: JAVA_VERSION
         value: 17
       - key: SPRING_PROFILES_ACTIVE
         value: prod
+      - key: PORT
+        value: 8080
+      - key: LOG_LEVEL
+        value: INFO
+      - key: APP_LOG_LEVEL
+        value: INFO
+    autoDeploy: true
+    domains:
+      - blood-donation-app.onrender.com
